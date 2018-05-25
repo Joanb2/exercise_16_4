@@ -1,16 +1,33 @@
-// production - time: 3546ms, size: 117 KiB 
-// development - time: 15892ms, size: 627 KiB
-
 const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
 
-module.exports = (env) => {
-    const environment = env;
-    return {
-        mode: environment,
+const env = process.env.NODE_ENV || 'development';
+
+const plugins = [
+        new HtmlWebpackPlugin({
+                template: 'src/index.html',
+                filename: 'index.html',
+                inject: 'body'
+            })
+];
+
+if (env === 'production') {
+    plugins.push(
+        new OptimizeJsPlugin({
+            sourceMap: false
+        })
+    )
+};
+
+module.exports = {  
+
+        mode: env,
         entry: './src/index.js',
         output: {
             path: path.resolve(__dirname, 'build'),
-            filename: 'app.' + environment + '.bundle.js'
+            filename: 'app.' + env + '.bundle.js'
         },
         module: {
             rules: [
@@ -32,6 +49,7 @@ module.exports = (env) => {
                 	]
                 }
             ]
-        }
-    };
+        },
+        plugins: plugins
+    
 };
