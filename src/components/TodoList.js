@@ -1,15 +1,16 @@
 import React from 'react';
 
-
-export class TodoList extends React.Component {
-	constructor(props) {
-		super(props);
-
-	} 
-	render() {
+const TodoList = ({data, remove}) => {
 		return (
-			<div>abs</div>
-			)
-	}
+			<div>
+				<h2>List: </h2>
+				<ol>
+					{data.map( (todo) => <li key={todo.id}>{todo.text}
+					<button onClick={() => remove(todo.id)}>x</button>
+					</li>)}
+				</ol>
+			</div>
+		);
 }
 
+export default TodoList;
