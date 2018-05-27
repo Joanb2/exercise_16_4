@@ -36,11 +36,13 @@ class App extends React.Component {
 		const remainder = this.state.data.filter(todo => todo.id !== id);
 		this.setState({data: remainder});
 	}
+
+
 	render() {
 		return (
 			<div className={style.TodoApp}>
-				<TodoForm add={this.addTodo.bind(this)} />
 				<Title className={style.Title} title="To Do" data={this.state.data.length}/>
+				<TodoForm addTodo={this.addTodo.bind(this)} data={this.state.input}/>
 				<TodoList remove={this.removeTodo.bind(this)}
 				data={this.state.data}/>
 			</div>
