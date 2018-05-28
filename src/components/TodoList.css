@@ -1,0 +1,13 @@
+h2 {
+	margin-top: 35px;
+	text-align: center;
+}
+
+ol {
+	text-align: left;
+	max-width: 250px;
+}
+
+button {
+	display: inline;
+}
