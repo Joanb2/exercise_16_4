@@ -1,0 +1,33 @@
+button {
+	margin-left: 10px;
+	border: none;
+	background-color: inherit;
+	font-family: inherit;
+	font-weight: 700;
+	padding-bottom: 7px;
+	color: #fff;
+}
+
+button:hover {
+	transform: scale(1.2, 1.2);
+	color: #A8B1DC;
+	cursor: pointer;
+}
+
+button:focus {
+	outline-style: none;
+}
+
+input {
+	color: #fff;
+	border: none;
+	border-bottom: 1px solid #36468F;
+	background-color: inherit;
+	font-family: inherit;
+	text-align: center;
+	font-size: 15px;
+}
+
+input:focus {
+	outline-style: none;
+}
